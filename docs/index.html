@@ -17,12 +17,27 @@
                 </nav>
             </div>
             <div class="body">
-                <p>Here is our prototype for the claims tracker</p>
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" id="circle-graphic"> 
-                    <a xlink:href="index.xhtml"><path d=" M 375 200 A 175 175 0 0 1 113 352" class="circle_graphic" fill="transparent" stroke="#2B41BC" stroke-width="20"/></a>
-                    <a xlink:href="index.xhtml"><path d=" M 113 352 A 175 175 120 0 1 112 48" class="circle_graphic" fill="transparent" stroke="#5666BC" stroke-width="20" /></a>
-                    <a xlink:href="index.xhtml"><path d=" M 112 48 A 175 175 240 0 1 375 200" class="circle_graphic" fill="transparent" stroke="blue" stroke-width="20" /></a>
-                </svg>
+                <div class="home-coverage">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" id="circle-graphic" visibility="visible"> 
+                        <a id="Step1" onclick="showText(id)"><path d=" M 375 200 A 175 175 0 0 1 113 352" class="circle_graphic" fill="transparent" stroke="#2B41BC" stroke-width="20"/></a>
+                        <a id="Step2" onclick="showText(id)"><path d=" M 113 352 A 175 175 120 0 1 112 48" class="circle_graphic" fill="transparent" stroke="#5666BC" stroke-width="20" /></a>
+                        <a id="Step3" onclick="showText(id)"><path d=" M 112 48 A 175 175 240 0 1 375 200" class="circle_graphic" fill="transparent" stroke="blue" stroke-width="20" /></a>
+                        <circle r="165" cx="200" cy="200" fill="white"></circle>
+                        <text x="200" y="200" text-anchor="middle" id="Step1-text" class="graphic_text">Step 1:</text>
+                        <text x="200" y="200" text-anchor="middle" id="Step2-text" class="graphic_text">Step 2:</text>
+                        <text x="200" y="200" text-anchor="middle" id="Step3-text" class="graphic_text">Step 3:</text>
+                        <script> 
+                            function showText(element_id) {
+                                var text_of_steps = document.getElementsByClassName("graphic_text");
+                                for (var i = 0; i < text_of_steps.length; i++){
+                                    text_of_steps[i].setAttribute("visibility", "hidden")
+                                }
+                                
+                                document.getElementById(String(element_id + "-text")).setAttribute("visibility", "visible");
+                                };
+                        </script>
+                    </svg>
+                </div>
             </div>
         </div>
     </body>
