@@ -1,4 +1,57 @@
-body{
-background:navy;
-color:white
+body {
+    background: #F9F9F9; /*#F9F9F9 white*/
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: "monospace", "FreeMono", monospace;
+    margin:0;
+    overflow: hidden;
+}
+
+.item2{
+    grid-area: picture;
+}
+
+p{
+    text-align: left;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.grid{
+    display: grid;
+
+    grid-template-areas:
+        'header'
+        'menu'
+        'body';
+   grid-auto-flow: row;
+/*   grid-template-columns: .33fr .33fr .33fr;*/
+   /* use fr units to define the relative proportions of each column, 
+    * and it looked to me like you had 4 columns on your pages.
+    * .25fr is like saying 25% of 100.   */     
+        
+}
+
+.item1{
+    grid-area: header;
+}
+
+.item2{
+    grid-area: menu;
+    position: sticky;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    background-color: #333;
+    font-size: x-large;
+    width: 100%;
+    color: white;
+}
+
+.item3{
+    grid-area: body;
+}
+
+ul{
+   list-style-type: none; 
 }
