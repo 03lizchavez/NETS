@@ -3,11 +3,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
     <desc></desc>
     <g alignment-baseline="baseline">
-        <text x="40" y="50">Claim's Processed  </text>
-        <circle r="45" cx="100" cy="140" fill="red"></circle>
-        <line x1="100" y1="200" x2="100" y2="300.0" style="stroke:black;stroke-width:5"></line>
-        <text x="70" y="320">Claim Under Review</text>
-        <circle r="45" cx="100" cy="400" fill="red"></circle>
+        <text x="20" y="10" fill="black">Claim's Processed  </text>
+        <circle r="10" cx="100" cy="30" fill="red"></circle>
+        <line x1="110" y1="30" x2="150" y2="30.0" style="stroke:black;stroke-width:5"></line>
+        <text x="180" y="10" fill="black">Claim Under Review</text>
+        <circle r="30" cx="100" cy="300" fill="red"></circle>
         
     </g>
 </svg>
