@@ -1,10 +1,28 @@
 body {
     background: #F9F9F9; /*#F9F9F9 white*/
-    text-align: center;
+/*    text-align: center;*/
     letter-spacing: 1px;
     font-family: "monospace", "FreeMono", monospace;
     margin:0;
+    overflow-x: hidden;
+}
+
+button.tab_button{
+    font-size: 4vh;
+    position: absolute;
+}
+
+div.coverage-tab{
+    border: solid black 3px;
+    height: 7vh;
     overflow: hidden;
+    display: block;
+    margin: 3vh;
+    transition: all 0.3s ease-in-out;
+}
+
+h1{
+    text-align: center;
 }
 
 .item2{
@@ -32,6 +50,16 @@ p{
     * and it looked to me like you had 4 columns on your pages.
     * .25fr is like saying 25% of 100.   */     
         
+}
+
+div.home-coverage{
+    margin: 1vh;
+    border: solid black 5px;
+}
+
+svg.svg_graphic{
+    float: left;
+    margin: 5vh;
 }
 
 div.header{
