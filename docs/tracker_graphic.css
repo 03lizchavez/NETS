@@ -10,7 +10,12 @@
     from{
         stroke-width: 25;
     }
+    
     to{
-        stroke-width: 50;
+        stroke-width: 45;
     }
+}
+
+.circle_select {
+    stroke-width: 45;
 }

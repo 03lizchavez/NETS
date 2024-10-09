@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html> 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 <title>NETS Prototype Insurance Claim Tracker</title>
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="stylesheet" href="tracker_graphic.css"/>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="tracker_graphic.css">
     </head>
     <body>
         <div class="grid">
@@ -17,15 +18,14 @@
             </div>
             <div class="body">
                 <div class="home-coverage">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" id="circle-graphic" visibility="visible">
-                        <a id="Step1" onclick="showText(id)"><path d=" M 112 48 A 175 175 240 0 1 375 200" class="circle_graphic" fill="transparent" stroke="blue" stroke-width="20" /></a>
-                        <a id="Step2" onclick="showText(id)"><path d=" M 113 352 A 175 175 120 0 1 112 48" class="circle_graphic" fill="transparent" stroke="#5666BC" stroke-width="20" /></a>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" id="circle-graphic" visibility="visible"> 
                         <a id="Step3" onclick="showText(id)"><path d=" M 375 200 A 175 175 0 0 1 113 352" class="circle_graphic" fill="transparent" stroke="#2B41BC" stroke-width="20"/></a>
+                        <a id="Step2" onclick="showText(id)"><path d=" M 113 352 A 175 175 120 0 1 112 48" class="circle_graphic" fill="transparent" stroke="#5666BC" stroke-width="20" /></a>
+                        <a id="Step1" onclick="showText(id)"><path d=" M 112 48 A 175 175 240 0 1 375 200" class="circle_graphic" fill="transparent" stroke="blue" stroke-width="20" /></a>
                         <circle r="165" cx="200" cy="200" fill="white"></circle>
-                        <text x="200" y="200" text-anchor="middle" id="Step1-text" class="graphic_text" visibility="hidden"><tspan dy="0em" x="200">Step 1:</tspan> <tspan dy="1em" x="200">Your claim is filed.</tspan></text>
-                        <text x="200" y="200" text-anchor="middle" id="Step2-text" class="graphic_text" visibility="hidden"><tspan dy="0em" x="200">Step 2:</tspan> <tspan dy="1em" x="200">Your claim is under review.</tspan></text>
-                        <text x="200" y="200" text-anchor="middle" id="Step3-text" class="graphic_text" visibility="hidden"><tspan dy="0em" x="200">Step 3:</tspan> <tspan dy="1em" x="200">Your claim is processed!</tspan></text>
-                        <!-- If you are using oXygen, please ignore any errors occuring in the script element below. The less than and greater than symbols are for conditional statements  -->
+                        <text x="200" y="200" text-anchor="middle" id="Step1-text" class="graphic_text" visibility="hidden">Step 1:</text>
+                        <text x="200" y="200" dy="-0.5cm" text-anchor="middle" id="Step2-text" class="graphic_text" visibility="hidden"><tspan>Step 2:</tspan> <tspan>Your claim has been processed!</tspan></text>
+                        <text x="200" y="200" text-anchor="middle" id="Step3-text" class="graphic_text" visibility="hidden">Step 3:</text>
                         <script> 
                             function showText(element_id) {
                                 var text_of_steps = document.getElementsByClassName("graphic_text");
@@ -39,8 +39,7 @@
                                 };
                                 selected.firstElementChild.classList.add("circle_select");
                                 document.getElementById(String(element_id + "-text")).setAttribute("visibility", "visible");
-                                }
-                                ;
+                                };
                         </script>
                     </svg>
                 </div>
