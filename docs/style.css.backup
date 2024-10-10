@@ -12,13 +12,6 @@ button.tab_button{
     background-color: transparent;
     position: absolute;
     border: none;
-    
-}
-
-iframe.home_panel{
-    width: 100%;
-    height: 100%;
-    padding-top: 5vh;
 }
 
 button.tab_button:hover{
@@ -54,6 +47,13 @@ p{
     margin: 20px auto;
 }
 
+table.claims_list{
+    margin-top: 4vh;
+    position: absolute;
+    right: 5%;
+    font-size: 2vh;
+}
+
 td{
     border-top: 1px black solid;
     border-bottom: 1px black solid;
@@ -79,6 +79,11 @@ div.home-coverage{
     border: solid black 5px;
 }
 
+svg.svg_graphic{
+    margin: 7vh;
+    position: absolute;
+}
+
 div.header{
     grid-area: header;
 }
@@ -101,16 +106,4 @@ div.body{
 
 ul{
    list-style-type: none; 
-}
-
-table.claims-list{
-    position: absolute;
-    margin: 3vh;
-    right: 2vh;
-}
-
-svg.progress-graph{
-    position: absolute;
-    float: left;
-    left: 2vh;
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+<title>NETS Prototype Insurance Claim Tracker</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="tracker_graphic.css"/>
+        <script src="scripts/dropdown.js"></script>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="header">
+                <h1>NETS Insurance Online Portal</h1>
+            </div>
+            <div class="nav">
+                <nav class="nav">
+                    Home|Settings
+                </nav>
+            </div>
+            <div class="body">
+                
+                
+                
+                <div class="coverage-tab" id="Home-Coverage-Tab" style="height: 7vh">
+                    <button class="tab_button" id="Home-coverage" onclick="displayTab(id)"> Home Coverage </button>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" id="Home-Circle-Graphic" class="svg_graphic" visibility="visible" style="display:none;" >
+                        <text x="200" y="200" text-anchor="middle" class="graphic_text">Claim #1206</text>
+                        <a id="Home-Step1" onclick="showText(id)"><path d=" M 112 48 A 175 175 240 0 1 375 200" class="circle_graphic" fill="transparent" stroke="blue" stroke-width="20" /></a>
+                        <a id="Home-Step2" onclick="showText(id)"><path d=" M 113 352 A 175 175 120 0 1 112 48" class="circle_graphic" fill="transparent" stroke="#5666BC" stroke-width="20" /></a>
+                        <a id="Home-Step3" onclick="showText(id)"><path d=" M 375 200 A 175 175 0 0 1 113 352" class="circle_graphic" fill="transparent" stroke="#2B41BC" stroke-width="20"/></a>
+                        <circle r="165" cx="200" cy="200" fill="white"></circle>
+                        <text x="200" y="200" text-anchor="middle" id="Home-Step1-text" class="graphic_text" visibility="hidden"><tspan dy="0em" x="200">Step 1:</tspan> <tspan dy="1em" x="200">Your claim is filed.</tspan></text>
+                        <text x="200" y="200" text-anchor="middle" id="Home-Step2-text" class="graphic_text" visibility="hidden"><tspan dy="0em" x="200">Step 2:</tspan> <tspan dy="1em" x="200">Your claim is under review.</tspan></text>
+                        <text x="200" y="200" text-anchor="middle" id="Home-Step3-text" class="graphic_text" visibility="hidden"><tspan dy="0em" x="200">Step 3:</tspan> <tspan dy="1em" x="200">Your claim is processed!</tspan></text>
+                        <!-- If you are using oXygen, ignore any errors occuring in the script element below. The less than and greater than symbols are for conditional statements  -->
+                        <script> 
+                            function showText(element_id) {
+                                var text_of_steps = document.getElementsByClassName("graphic_text");
+                                var selected = document.getElementById(element_id);
+                                var graphics = document.getElementsByClassName("circle_graphic")
+                                for (var i = 0; i < text_of_steps.length; i++){
+                                    text_of_steps[i].setAttribute("visibility", "hidden");
+                                };
+                                for (var i = 0; i < graphics.length; i++){
+                                    graphics[i].classList.remove("circle_select");;
+                                };
+                                selected.firstElementChild.classList.add("circle_select");
+                                document.getElementById(String(element_id + "-text")).setAttribute("visibility", "visible");
+                                };
+                        </script>
+                    </svg>
+                    
+                    <table id="Home-Claims-Chart" class="claims_list" style="display:none;">
+                        <tr>
+                            <td> Claim Number </td>
+                            <td> Filing Date </td>
+                            <td> Agent </td>
+                        </tr>
+                        <tr>
+                            <td> <a>#1206</a> </td>
+                            <td> 09/10/24 </td>
+                            <td> Maria </td>
+                        </tr>
+                        <tr>
+                            <td> <a>#1209</a> </td>
+                            <td> 12/10/24 </td>
+                            <td> Louis </td>
+                        </tr>
+                        <tr>
+                            <td> <a>#1221</a> </td>
+                            <td> 17/10/24 </td>
+                            <td> Louis </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </body>
+
+</html>

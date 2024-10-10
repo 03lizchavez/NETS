@@ -1,10 +1,10 @@
-.circle_graphic {
+.claim_progress_graphic {
     transition: all 0.3s ease-in-out;
 }
 
-.circle_graphic:hover {
-    stroke-width: 45;
+.claim_progress_graphic:hover {
+    stroke-width: 40;
 }
-.circle_select {
-    stroke-width: 45;
+.claim_progress_selected {
+    stroke-width: 50;
 }
