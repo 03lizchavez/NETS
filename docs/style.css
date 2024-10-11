@@ -6,7 +6,10 @@ body {
     margin:0;
     overflow-x: hidden;
 }
-
+h1{
+border-color:black;
+border-style:solid;
+}
 button.tab_button{
     font-size: 4vh;
     background-color: transparent;
@@ -27,6 +30,7 @@ button.tab_button:hover{
     text-decoration: underline;
     position: absolute;
     border: none;
+    color:aqua
 }
 
 div.coverage-tab{
@@ -36,6 +40,7 @@ div.coverage-tab{
     display: block;
     margin: 3vh;
     transition: all 0.3s ease-in-out;
+    
 }
 
 h1{
