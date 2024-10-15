@@ -72,11 +72,13 @@ button.claim-button:hover{
     color:blue;
     border: none;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 button.claim-button{
     background-color: transparent;
     border: none;
+    font-weight: bold;
 }
 
 div.coverage-tab1{
