@@ -8,7 +8,6 @@ body {
 }
 h1{
 border-color:black;
-border-style:solid;
 }
 button.tab_button{
     font-size: 4vh;
@@ -16,6 +15,39 @@ button.tab_button{
     position: absolute;
     border: none;
     
+}
+
+div.file-claim-panel{
+    bottom: 0;
+    right: 0;
+    display: flex;
+    position: absolute;
+    background-color: #F9F9F9;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    transition: all 0.3s ease-in-out;
+}
+
+form{
+    margin: auto;
+    text-align: center;
+}
+
+img.file-claim-button{
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    height: 14vh;
+    background-color: #F9F9F9;
+}
+img.file-claim-button:hover{
+    height: 13vh;
+    background-color: #F9F9F9;
+}
+
+button.file-claim-button{
+    background-color: transparent;
+    border: none;
 }
 
 iframe.home_panel{
@@ -55,6 +87,19 @@ div.coverage-tab{
 }
 
 h1{
+    text-align: center;
+}
+
+a.nav{
+    color: white;
+    text-decoration: none;
+}
+a.nav:hover{
+    color: blue;
+    text-decoration: none;
+}
+
+p.login-text{
     text-align: center;
 }
 

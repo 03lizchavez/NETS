@@ -1,7 +1,3 @@
-.claim_progress_graphic_unavailable {
-    stroke: #808080;
-}
-
 .claim_progress_graphic {
     transition: all 0.3s ease-in-out;
 }
@@ -11,4 +7,13 @@
 }
 .claim_progress_selected {
     stroke-width: 50;
+}
+
+.claim_progress_graphic_unavailable {
+    stroke: #808080;
+}
+
+.claim_progress_graphic_unavailable:hover {
+    stroke: #808080;
+    stroke-width: 20;
 }

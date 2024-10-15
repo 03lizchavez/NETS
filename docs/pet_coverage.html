@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Home Policy Tab
+            Auto Policy Tab
         </title>
         <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="tracker_graphic.css"/>
@@ -12,42 +12,48 @@
         <table id="Home-Claims-Chart" class="claims-list">
             <tr>
                 <td> Claim Number </td>
-                <td> Filing Date </td>
-                <td> Agent </td>
+                <td> Status </td>
             </tr>
             <tr>
-                <td> <button id="claim-1206" class="claim-button" onclick="viewClaim(id)">#1206</button> </td>
-                <td> 09/10/24 </td>
-                <td> Maria </td>
+                <td> <button id="claim-1201" class="claim-button" onclick="viewClaim(id)" data-filing-date="09/10/24" data-agent="No agent assigned" data-progress="1" data-agent-pn="N/A">#1201</button> </td>
+                <td> Awaiting review </td>
             </tr>
             <tr>
-                <td> <button id="claim-1209" class="claim-button" onclick="viewClaim(id)">#1209</button> </td>
-                <td> 12/10/24 </td>
-                <td> Louis </td>
+                <td> <button id="claim-1206" class="claim-button" onclick="viewClaim(id)" data-filing-date="14/10/24" data-agent="Maria" data-progress="2" data-agent-pn="(412) 251-2699">#1206</button> </td>
+                <td> Under review </td>
             </tr>
             <tr>
-                <td> <button id="claim-1221" class="claim-button" onclick="viewClaim(id)">#1221</button> </td>
-                <td> 17/10/24 </td>
-                <td> Louis </td>
+                <td> <button id="claim-1209" class="claim-button" onclick="viewClaim(id)" data-filing-date="17/10/24" data-agent="Louis" data-progress="3" data-agent-pn="(412) 253-2696">#1209</button> </td>
+                <td> Claim processed </td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1221" class="claim-button" onclick="viewClaim(id)" data-filing-date="24/10/24" data-agent="Louis" data-progress="4a" data-agent-pn="(412) 253-2696" data-payout="$450.00">#1221</button> </td>
+                <td> Payout ready </td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1224" class="claim-button" onclick="viewClaim(id)" data-filing-date="30/10/24" data-agent="John" data-progress="4b"  data-agent-pn="(412) 257-2691" data-payout="$325.53">#1224</button> </td>
+                <td> Payout adjusted </td>
             </tr>
         </table>
         
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" id="claim_progress_svg" class="claim_progress_graph" visibility="hidden" >
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="400" id="claim_progress_svg" class="claim_progress_graph" visibility="hidden" >
             
             
-            <a onclick="viewClaimStep(id)" id="claim-step1"><path d=" M 112 48 A 175 175 240 0 1 375 200" class="claim_progress_graphic" fill="transparent" stroke="blue" stroke-width="20" /></a>
-            <a onclick="viewClaimStep(id)" id="claim-step2"><path d=" M 113 352 A 175 175 120 0 1 112 48" class="claim_progress_graphic" fill="transparent" stroke="#5666BC" stroke-width="20" /></a>
-            <a onclick="viewClaimStep(id)" id="claim-step3"><path d=" M 375 200 A 175 175 0 0 1 113 352" class="claim_progress_graphic" fill="transparent" stroke="#2B41BC" stroke-width="20"/></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-1"><path d=" M 375 200 A 175 175 0 0 1 200 375" class="claim_progress_graphic" fill="transparent" stroke="#93A3FF" stroke-width="20" /></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-2"><path d=" M 200 375 A 175 175 90 0 1 25 200" class="claim_progress_graphic" fill="transparent" stroke="#6D83FF" stroke-width="20" /></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-3"><path d=" M 25 200 A 175 175 180 0 1 200 25" class="claim_progress_graphic" fill="transparent" stroke="#6D59FF" stroke-width="20"/></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-4"><path d=" M 200 25 A 175 175 270 0 1 375 200" class="claim_progress_graphic" fill="transparent" stroke="#4A3AFF" stroke-width="20"/></a>
             <circle r="165" cx="200" cy="200" fill="white"></circle>
             
             
-            <text x="200" y="200" text-anchor="middle" id="claim-step1-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 1:</tspan> <tspan dy="1em" x="200">Your claim is filed.</tspan></text>
-            <text x="200" y="200" text-anchor="middle" id="claim-step2-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 2:</tspan> <tspan dy="1em" x="200">Your claim is under review.</tspan></text>
-            <text x="200" y="200" text-anchor="middle" id="claim-step3-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 3:</tspan> <tspan dy="1em" x="200">Your claim is processed!</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-1-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 1:</tspan> <tspan dy="1em" x="200">Waiting for agent to be assigned.</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-2-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 2:</tspan> <tspan dy="1em" x="200">Your claim is under review</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-3-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 3:</tspan> <tspan dy="1em" x="200">Now gathering evidence.</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-4-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 4:</tspan> <tspan dy="1em" x="200">Your claim is processed!</tspan></text>
+            <text x="200" y="100" text-anchor="middle" id="claim-number-text" style="font-weight: bold;"><tspan dy="0em" x="200">Select a part of </tspan><tspan dy="1em" x="200">circle to see claim's history</tspan></text>
             
             
-            <text x="200" y="100" text-anchor="middle" id="claim-number-text"><tspan dy="0em" x="200">Select a claim to see </tspan><tspan dy="1em" x="200">the details of its progress</tspan></text>
-            
+            <text x="600" y="100" text-anchor="start" id="claim-extra-info" class="claim_progress_text"><tspan dy="0em" x="415"  style="font-weight: bold;">Agent:</tspan> <tspan dy="1em" x="415">Not assigned yet!</tspan></text>
             <script>
                 function deselectClaimSteps(){
                     var claim_steps = document.getElementsByClassName("claim_progress_graphic");
@@ -55,14 +61,22 @@
                     for (var i = 0; i &lt; claim_steps.length; i++){
                         claim_steps[i].classList.remove("claim_progress_selected");
                         claim_steps_text[i].setAttribute("visibility", "hidden")
+                        document.getElementById("claim-number-text").firstChild.innerHTML = "Select a part of ";
+                        document.getElementById("claim-number-text").lastChild.innerHTML = "circle to see claim's history";
                     }
                 }
                 
                 function viewClaimStep(_claimStep){
                     var selected_step = document.getElementById(_claimStep);
-                    deselectClaimSteps();
-                    document.getElementById(_claimStep + "-text").setAttribute("visibility", "visible")
-                    selected_step.firstElementChild.classList.add("claim_progress_selected");
+                    if (selected_step.children[0].classList == "claim_progress_graphic"){
+                        deselectClaimSteps();
+                        var step_text = _claimStep.split("-");
+                        document.getElementById("claim-number-text").firstChild.innerHTML = String(step_text[1].toUpperCase() + " " + step_text[2]);
+                        document.getElementById("claim-number-text").lastChild.innerHTML = "";
+                        document.getElementById(_claimStep + "-text").setAttribute("visibility", "visible")
+                        selected_step.firstElementChild.classList.add("claim_progress_selected");
+                    };
+                    
                 }
             </script>
             <!-- If you are using oXygen, ignore any errors occuring in the script element below. The less than and greater than symbols are for conditional statements  -->
