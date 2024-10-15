@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="tracker_graphic.css"/>
         <script src="scripts/claimsviewer.js"></script>
+        <script src="scripts/fileclaim.js"></script>
     </head>
     <body class="policy-panel">
         <table id="Home-Claims-Chart" class="claims-list">
@@ -15,24 +16,20 @@
                 <td> Status </td>
             </tr>
             <tr>
-                <td> <button id="claim-1201" class="claim-button" onclick="viewClaim(id)" data-filing-date="09/10/24" data-agent="No agent assigned" data-progress="1" data-agent-pn="N/A">#1201</button> </td>
-                <td> Awaiting review </td>
-            </tr>
-            <tr>
-                <td> <button id="claim-1206" class="claim-button" onclick="viewClaim(id)" data-filing-date="14/10/24" data-agent="Maria" data-progress="2" data-agent-pn="(412) 251-2699">#1206</button> </td>
-                <td> Under review </td>
-            </tr>
-            <tr>
-                <td> <button id="claim-1209" class="claim-button" onclick="viewClaim(id)" data-filing-date="17/10/24" data-agent="Louis" data-progress="3" data-agent-pn="(412) 253-2696">#1209</button> </td>
+                <td> <button id="claim-1451" class="claim-button" onclick="viewClaim(id)" data-filing-date="09/12/24" data-agent="Tim" data-progress="3" data-agent-pn="(803) 372-2909">#1451</button> </td>
                 <td> Claim processed </td>
             </tr>
             <tr>
-                <td> <button id="claim-1221" class="claim-button" onclick="viewClaim(id)" data-filing-date="24/10/24" data-agent="Louis" data-progress="4a" data-agent-pn="(412) 253-2696" data-payout="$450.00">#1221</button> </td>
+                <td> <button id="claim-1462" class="claim-button" onclick="viewClaim(id)" data-filing-date="14/09/24" data-agent="Lucas" data-progress="2" data-agent-pn="(412) 251-2699">#1462</button> </td>
+                <td> Under review </td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1751" class="claim-button" onclick="viewClaim(id)" data-filing-date="31/10/24" data-agent="Rodger" data-progress="4a" data-agent-pn="(412) 253-2696" data-payout="$950.00">#1751</button> </td>
                 <td> Payout ready </td>
             </tr>
             <tr>
-                <td> <button id="claim-1224" class="claim-button" onclick="viewClaim(id)" data-filing-date="30/10/24" data-agent="John" data-progress="4b"  data-agent-pn="(412) 257-2691" data-payout="$325.53">#1224</button> </td>
-                <td> Payout adjusted </td>
+                <td> <button id="claim-1520" class="claim-button" onclick="viewClaim(id)" data-filing-date="05/10/24" data-agent="Louis" data-progress="3" data-agent-pn="(412) 253-2696">#1520</button> </td>
+                <td> Claim processed </td>
             </tr>
         </table>
         
@@ -55,6 +52,7 @@
             
             <text x="600" y="100" text-anchor="start" id="claim-extra-info" class="claim_progress_text"><tspan dy="0em" x="415"  style="font-weight: bold;">Agent:</tspan> <tspan dy="1em" x="415">Not assigned yet!</tspan></text>
             <script>
+                
                 function deselectClaimSteps(){
                     var claim_steps = document.getElementsByClassName("claim_progress_graphic");
                     var claim_steps_text = document.getElementsByClassName("claim_progress_text");
@@ -66,12 +64,14 @@
                     }
                 }
                 
+                
                 function viewClaimStep(_claimStep){
                     var selected_step = document.getElementById(_claimStep);
                     if (selected_step.children[0].classList == "claim_progress_graphic"){
                         deselectClaimSteps();
                         var step_text = _claimStep.split("-");
                         document.getElementById("claim-number-text").firstChild.innerHTML = String(step_text[1].toUpperCase() + " " + step_text[2]);
+                        
                         document.getElementById("claim-number-text").lastChild.innerHTML = "";
                         document.getElementById(_claimStep + "-text").setAttribute("visibility", "visible")
                         selected_step.firstElementChild.classList.add("claim_progress_selected");
@@ -79,29 +79,26 @@
                     
                 }
             </script>
-            <!-- If you are using oXygen, ignore any errors occuring in the script element below. The less than and greater than symbols are for conditional statements  -->
-            
-            
-<!--            <script>
-                function viewClaim(){
-                    document.getElementById("progress-graphic").setAttribute()
-                    alert("test")
-                }-\->
-                
-                function showText(element_id) {
-                var text_of_steps = document.getElementsByClassName("graphic_text");
-                var selected = document.getElementById(element_id);
-                var graphics = document.getElementsByClassName("circle_graphic")
-                for (var i = 0; i < text_of_steps.length; i++){
-                    text_of_steps[i].setAttribute("visibility", "hidden");
-                };
-                for (var i = 0; i < graphics.length; i++){
-                    graphics[i].classList.remove("circle_select");;
-                };
-                selected.firstElementChild.classList.add("circle_select");
-                document.getElementById(String(element_id + "-text")).setAttribute("visibility", "visible");
-                };
-            </script>-->
         </svg>
+        
+        <div class="file-claim-panel" id="file-claim-panel" style="height: 22vh; width: 11vh; border: none;">
+            <button style="position: absolute; float: right; right: 0%;" onclick="fileClaim()" class="file-claim-button"><img src="images/fileClaim_icon.svg" alt="file_claim" class="file-claim-button"/></button>
+            <form id="file-claim-form" style="display: none;">
+                <p> You can file a claim by filling out the information below and submitting it.</p>
+                <label> Policy: </label>
+                <input list="policies"/><br/>
+                <datalist id="policies">
+                    <option value="Auto">
+                    <option value="Home">
+                    <option value="Pet">
+                </datalist>
+                <label> Claim Number: </label>
+                <input type="text"/><br/>
+                <label> Insurer: </label>
+                <input type="text"/><br/><br/><br/>
+                <input type="submit" value="Submit">
+            </form>
+            
+        </div>
     </body>
 </html>

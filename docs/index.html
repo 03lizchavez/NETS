@@ -18,17 +18,31 @@
             </div>
             <div class="body">
                 
-                <div class="coverage-tab" id="Home-Coverage-Tab" style="height: 7vh">
-                    <button class="tab_button" id="Home-coverage" onclick="displayTab(id)"> Home Coverage </button>
-                    <iframe src="home_coverage.html" class="home_panel" style="display: none;"></iframe>
+                <div style="position: fixed;">
+                    <div class="coverage-tab1" id="Home-Coverage-Tab" style="height: 7vh">
+                        <button class="tab_button" id="Home-coverage" onclick="displayTab(id)"> Home Coverage </button>
+                        <iframe src="home_coverage.html" class="home_panel" style="display: none;"></iframe>
+                    </div>
+                    <div class="coverage-tab2" id="Auto-Coverage-Tab" style="height: 7vh">
+                        <button class="tab_button" id="Auto-coverage" onclick="displayTab(id)"> Auto Coverage </button>
+                        <iframe src="auto_coverage.html" class="home_panel" style="display: none;"></iframe>
+                    </div>
                 </div>
-                <div class="coverage-tab" id="Auto-Coverage-Tab" style="height: 7vh">
-                    <button class="tab_button" id="Auto-coverage" onclick="displayTab(id)"> Auto Coverage </button>
-                    <iframe src="auto_coverage.html" class="home_panel" style="display: none;"></iframe>
-                </div>
-                <div class="coverage-tab" id="Pet-Coverage-Tab" style="height: 7vh">
-                    <button class="tab_button" id="Pet-coverage" onclick="displayTab(id)"> Pet Coverage </button>
-                    <iframe src="pet_coverage.html" class="home_panel" style="display: none;"></iframe>
+                
+                
+                <div class="settings">
+                    <p style="position: absolute; text-align: center;">Accessibility Modifications</p><br/><br/>
+                    <form>
+                        Text Size
+                        <input type="number"><br/>
+                        Language
+                        <input list="languages"><br/>
+                    </form>
+                    <datalist id="languages">
+                        <option value="English">
+                        <option value="Spanish">
+                        <option value="German">
+                    </datalist>
                 </div>
             </div>
         </div>

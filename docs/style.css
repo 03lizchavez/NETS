@@ -43,6 +43,7 @@ img.file-claim-button{
 img.file-claim-button:hover{
     height: 13vh;
     background-color: #F9F9F9;
+    cursor: pointer;
 }
 
 button.file-claim-button{
@@ -60,6 +61,7 @@ button.tab_button:hover{
     font-size: 4vh;
     background-color: transparent;
     text-decoration: underline;
+    cursor: pointer;
     position: absolute;
     border: none;
     color:blue;
@@ -69,6 +71,7 @@ button.claim-button:hover{
     background-color: transparent;
     color:blue;
     border: none;
+    cursor: pointer;
 }
 
 button.claim-button{
@@ -76,12 +79,36 @@ button.claim-button{
     border: none;
 }
 
-div.coverage-tab{
+div.coverage-tab1{
     border: solid black 3px;
     height: 7vh;
+    width: 75vw;
     overflow: hidden;
     display: block;
     margin: 3vh;
+    transition: all 0.3s ease-in-out;
+}
+div.coverage-tab2{
+    border: solid black 3px;
+    height: 7vh;
+    width: 75vw;
+    overflow: hidden;
+    display: block;
+    top: 25%;
+    margin: 3vh;
+    transition: all 0.3s ease-in-out;
+}
+
+div.settings{
+    border: solid black 3px;
+    height: 25vh;
+    width: 20vw;
+    overflow: hidden;
+    position: absolute;
+    right: 0%;
+    display: flex;
+    margin: 3vh;
+    float: right;
     transition: all 0.3s ease-in-out;
     
 }
@@ -97,6 +124,7 @@ a.nav{
 a.nav:hover{
     color: blue;
     text-decoration: none;
+    cursor: pointer;
 }
 
 p.login-text{

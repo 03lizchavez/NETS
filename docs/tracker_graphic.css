@@ -4,6 +4,7 @@
 
 .claim_progress_graphic:hover {
     stroke-width: 40;
+    cursor: pointer;
 }
 .claim_progress_selected {
     stroke-width: 50;
