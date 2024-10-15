@@ -30,7 +30,18 @@ button.tab_button:hover{
     text-decoration: underline;
     position: absolute;
     border: none;
-    color:aqua
+    color:blue;
+}
+
+button.claim-button:hover{
+    background-color: transparent;
+    color:blue;
+    border: none;
+}
+
+button.claim-button{
+    background-color: transparent;
+    border: none;
 }
 
 div.coverage-tab{
