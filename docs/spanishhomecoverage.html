@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Casa Aseguradora de NETS</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="tracker_graphic.css"/>
+        <script src="scripts/claimsviewer.js"></script>
+        <script src="scripts/fileclaim.js"></script>
+    </head>
+    <body class="policy-panel">
+        <table id="Home-Claims-Chart" class="claims-list">
+            <tr>
+                <td> Numero de reclamo al seguro </td>
+                <td> Estado </td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1451" class="claim-button" onclick="viewClaim(id)" data-filing-date="09/12/24" data-agent="Tim" data-progress="3" data-agent-pn="(803) 372-2909">#1451</button> </td>
+                <td> Reclamo esta procesando </td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1462" class="claim-button" onclick="viewClaim(id)" data-filing-date="14/09/24" data-agent="Lucas" data-progress="2" data-agent-pn="(412) 251-2699">#1462</button> </td>
+                <td> Reclamo esta revisando</td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1751" class="claim-button" onclick="viewClaim(id)" data-filing-date="31/10/24" data-agent="Rodger" data-progress="4a" data-agent-pn="(412) 253-2696" data-payout="$950.00">#1751</button> </td>
+                <td> Pago esta listo </td>
+            </tr>
+            <tr>
+                <td> <button id="claim-1520" class="claim-button" onclick="viewClaim(id)" data-filing-date="05/10/24" data-agent="Louis" data-progress="3" data-agent-pn="(412) 253-2696">#1520</button> </td>
+                <td> Reclamo esta procesando </td>
+            </tr>
+        </table>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="400" id="claim_progress_svg" class="claim_progress_graph" visibility="hidden" >
+            
+            
+            <a onclick="viewClaimStep(id)" id="claim-step-1"><path d=" M 375 200 A 175 175 0 0 1 200 375" class="claim_progress_graphic" fill="transparent" stroke="#93A3FF" stroke-width="20" /></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-2"><path d=" M 200 375 A 175 175 90 0 1 25 200" class="claim_progress_graphic" fill="transparent" stroke="#6D83FF" stroke-width="20" /></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-3"><path d=" M 25 200 A 175 175 180 0 1 200 25" class="claim_progress_graphic" fill="transparent" stroke="#6D59FF" stroke-width="20"/></a>
+            <a onclick="viewClaimStep(id)" id="claim-step-4"><path d=" M 200 25 A 175 175 270 0 1 375 200" class="claim_progress_graphic" fill="transparent" stroke="#4A3AFF" stroke-width="20"/></a>
+            <circle r="165" cx="200" cy="200" fill="white"></circle>
+            
+            
+            <text x="200" y="200" text-anchor="middle" id="claim-step-1-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 1:</tspan> <tspan dy="1em" x="200">Waiting for agent to be assigned.</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-2-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 2:</tspan> <tspan dy="1em" x="200">Your claim is under review</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-3-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 3:</tspan> <tspan dy="1em" x="200">Now gathering evidence.</tspan></text>
+            <text x="200" y="200" text-anchor="middle" id="claim-step-4-text" class="claim_progress_text"><tspan dy="0em" x="200">Step 4:</tspan> <tspan dy="1em" x="200">Your claim is processed!</tspan></text>
+            <text x="200" y="100" text-anchor="middle" id="claim-number-text" style="font-weight: bold;"><tspan dy="0em" x="200">Select a part of </tspan><tspan dy="1em" x="200">circle to see claim's history</tspan></text>
+            
+            
+            <text x="600" y="100" text-anchor="start" id="claim-extra-info" class="claim_progress_text"><tspan dy="0em" x="415"  style="font-weight: bold;">Agent:</tspan> <tspan dy="1em" x="415">Not assigned yet!</tspan></text>
+            <script>
+                
+                function deselectClaimSteps(){
+                    var claim_steps = document.getElementsByClassName("claim_progress_graphic");
+                    var claim_steps_text = document.getElementsByClassName("claim_progress_text");
+                    for (var i = 0; i &lt; claim_steps.length; i++){
+                        claim_steps[i].classList.remove("claim_progress_selected");
+                        claim_steps_text[i].setAttribute("visibility", "hidden")
+                        document.getElementById("claim-number-text").firstChild.innerHTML = "Select a part of ";
+                        document.getElementById("claim-number-text").lastChild.innerHTML = "circle to see claim's history";
+                    }
+                }
+                
+                
+                function viewClaimStep(_claimStep){
+                    var selected_step = document.getElementById(_claimStep);
+                    if (selected_step.children[0].classList == "claim_progress_graphic"){
+                        deselectClaimSteps();
+                        var step_text = _claimStep.split("-");
+                        document.getElementById("claim-number-text").firstChild.innerHTML = String(step_text[1].toUpperCase() + " " + step_text[2]);
+                        
+                        document.getElementById("claim-number-text").lastChild.innerHTML = "";
+                        document.getElementById(_claimStep + "-text").setAttribute("visibility", "visible")
+                        selected_step.firstElementChild.classList.add("claim_progress_selected");
+                    };
+                    
+                }
+            </script>
+        </svg>
+        
+        <div class="file-claim-panel" id="file-claim-panel" style="height: 22vh; width: 11vh; border: none;">
+            <button style="position: absolute; float: right; right: 0%;" onclick="fileClaim()" class="file-claim-button"><img src="images/fileClaim_icon.svg" alt="file_claim" class="file-claim-button"/></button>
+            <form id="file-claim-form" style="display: none;">
+                <p> Puedes a presentar un reclamo por llenando la informacion abajo:</p>
+                <label> Política: </label>
+                <input list="policies"/><br/>
+                <datalist id="policies">
+                    <option value="Auto">
+                    <option value="Home">
+                    <option value="Pet">
+                </datalist>
+                <label> Numero de Reclamo: </label>
+                <input type="text"/><br/>
+                <label> Aseguradora: </label>
+                <input type="text"/><br/>
+                <label> Sube Media: </label>
+                <input type="file"/><br/><br/><br/>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
